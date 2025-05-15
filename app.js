@@ -10,6 +10,10 @@ const { initSocket } = require('./socket');
 app.use(express.json());
 app.use('/api', indexRouter);
 
+app.get('/healthCheck',(req,res)=>{
+    return res.status(200).json({ message : 'Health Check Ok!'})
+})
+
 const server = http.createServer(app);
 initSocket(server);
 
