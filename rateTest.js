@@ -7,7 +7,7 @@ const variables = {
 
 (async () => {
   for (let i = 1; i <= 10; i++) {
-    const res = await fetch('http://localhost:4000/api/user/login', {
+    const res = await fetch('http://localhost:3000/api/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(variables)

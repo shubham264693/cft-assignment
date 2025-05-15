@@ -2,12 +2,12 @@ const { Sequelize } = require('sequelize');
 
 
 const sequelize = new Sequelize({
-    host : 'localhost',
-    database : 'CFT_DB',
-    username : 'postgres',
-    password : 'root',
-    dialect : 'postgres',
-    port : 5432,
+    host : process.env.HOST,
+    port : process.env.DBPORT,
+    database : process.env.DB,
+    username : process.env.USERNAME,
+    password : process.env.PASSWORD,
+    dialect : 'postgres'
 })
 
 module.exports = sequelize;
