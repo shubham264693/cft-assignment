@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Test</title>
+</head>
+<body>
+  <h2>WebSocket Test</h2>
+
+  <input type="text" id="messageInput" placeholder="Type message..." />
+  <button onclick="send()">Send</button>
+
+  <p>Open console to view messages.</p>
+
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script>
+    const token = prompt('Enter your JWT token');
+
+    const socket = io('http://localhost:4000', {
+      auth: { token }
+    });
+
+    socket.on('connect', () => {
+      console.log('✅ Connected:', socket.id);
+      socket.emit('joinRoom', 'general');
+    });
+
+    socket.on('receiveMessage', (data) => {
+      console.log('Message received:', data);
+    });
+
+    // If disconnected
+    socket.on('disconnect', (reason) => {
+      console.warn('Disconnected:', reason);
+    });
+
+    socket.on('connect_error', (err) => {
+      console.error('Connection failed:', err.message);
+    });
+
+
+    function send() {
+      const message = document.getElementById('messageInput').value;
+      socket.emit('sendMessage', { room: 'general', message });
+      document.getElementById('messageInput').value = '';
+    }
+  </script>
+</body>
+</html>

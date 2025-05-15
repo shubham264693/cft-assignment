@@ -1,0 +1,29 @@
+{
+  "name": "cft-assingnment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "env-cmd": "^10.1.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "http": "^0.0.1-security",
+    "ioredis": "^5.6.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "rate-limit-redis": "^4.2.0",
+    "redis": "^5.0.1",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.1"
+  }
+}
